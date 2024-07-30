@@ -1,7 +1,7 @@
 require "faraday"
 require "active_support"
 require "moneta"
-require "active_model_serializers"
+
 require "active_support/inflector"
 require "active_support/core_ext/object"
 require "active_support/core_ext/string"
@@ -201,8 +201,8 @@ module Parse
       # @see Parse::Middleware::Caching
       # @see Parse::Middleware::Authentication
       # @see Parse::Protocol
-      def setup(opts = {})
-        @clients[:default] = self.new(opts, &Proc.new)
+      def setup(opts = {}, &block)
+        @clients[:default] = self.new(opts, &block)
       end
     end
 
@@ -480,7 +480,7 @@ module Parse
         retry
       end
       raise
-    rescue Faraday::Error::ClientError, Net::OpenTimeout => e
+    rescue Faraday::ClientError, Net::OpenTimeout => e
       if _retry_count > 0
         warn "[Parse:Retry] Retries remaining #{_retry_count} : #{_request}"
         _retry_count -= 1
@@ -578,9 +578,9 @@ module Parse
   # @yield (see Parse::Client.setup)
   # @return (see Parse::Client.setup)
   # @see Parse::Client.setup
-  def self.setup(opts = {})
+  def self.setup(opts = {}, &block)
     if block_given?
-      Parse::Client.new(opts, &Proc.new)
+      Parse::Client.new(opts, &block)
     else
       Parse::Client.new(opts)
     end
