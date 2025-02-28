@@ -1,5 +1,9 @@
 ## Parse-Stack Changelog
 
+### 1.10.0
+- bump ruby to 3.0.7
+- support rails 7.1
+
 ### 1.9.0
 
 - Support for ActiveModel and ActiveSupport 6.0.

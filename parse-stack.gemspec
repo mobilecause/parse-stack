@@ -25,11 +25,11 @@ Gem::Specification.new do |spec|
   spec.bindir = "bin"
   spec.executables = ["parse-console"] #spec.files.grep(%r{^bin/pstack/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
-  spec.required_ruby_version = ">= 2.6"
+  spec.required_ruby_version = ">= 3.0.7"
 
-  spec.add_runtime_dependency "activemodel", [">= 5", "< 7"]
+  spec.add_runtime_dependency "activemodel", [">= 5", "< 8"]
   spec.add_runtime_dependency "active_model_serializers", [">= 0.9", "< 1"]
-  spec.add_runtime_dependency "activesupport", [">= 5", "< 7"]
+  spec.add_runtime_dependency "activesupport", [">= 5", "< 8"]
   spec.add_runtime_dependency "parallel", [">= 1.6", "< 2"]
   spec.add_runtime_dependency "faraday"
   spec.add_runtime_dependency "moneta", "< 2"

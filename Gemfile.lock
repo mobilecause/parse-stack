@@ -1,10 +1,10 @@
 PATH
   remote: .
   specs:
-    parse-stack (1.10.0)
+    parse-stack (1.11.0)
       active_model_serializers (>= 0.9, < 1)
-      activemodel (>= 5, < 7)
-      activesupport (>= 5, < 7)
+      activemodel (>= 5, < 8)
+      activesupport (>= 5, < 8)
       faraday
       moneta (< 2)
       parallel (>= 1.6, < 2)
@@ -125,6 +125,7 @@ GEM
 
 PLATFORMS
   arm64-darwin-23
+  arm64-darwin-24
   x86_64-darwin-20
   x86_64-linux
 
@@ -145,4 +146,4 @@ DEPENDENCIES
   yard (>= 0.9.11)
 
 BUNDLED WITH
-   2.3.19
+   2.5.21
